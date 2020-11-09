@@ -3,7 +3,9 @@
 // projfunc.h
 
 typedef struct {
-	
+	int atomic;
+	char symbol[4];
+	char element[20];	
 } Element;
 
 #include <stdio.h>
