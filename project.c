@@ -10,15 +10,14 @@ int main() {
 	fn = "elements.csv";
 	FILE *fp = fopen(fn, "r+");
 	
-	int maxnum = 125;
+	int maxnum = 118; // current known number of elements
 	Element elements[maxnum];
-
 	int size = get_elements(fp, elements);
 
 	int i;
 	for (i = 0; i < size; i++) {
 		printf("%d\n", elements[i].atomic);
 	}
-
+	
 	return 0;
 }
