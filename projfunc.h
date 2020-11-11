@@ -11,3 +11,6 @@ typedef struct {
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+
+// Takes the file and puts the data into an array of the struct Element
+int get_elements(FILE *, Element []);
