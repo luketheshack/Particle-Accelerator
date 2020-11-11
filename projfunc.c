@@ -18,6 +18,5 @@ int get_elements(FILE *fp, Element elements[]) {
 		strcpy(elements[i].element, strtok(NULL, "\n"));
 		++i;
 	}
-	
 	return i;
 }
