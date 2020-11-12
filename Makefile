@@ -1,5 +1,5 @@
 project: project.o projfunc.o
-	gcc project.o projfunc.o gfx.o -lX11 -o project
+	gcc project.o projfunc.o gfx.o -lX11 -lm -o project
 
 project.o: projfunc.h project.c
 	gcc -c project.c -o project.o

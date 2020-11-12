@@ -17,3 +17,4 @@ typedef struct {
 // Takes the file and puts the data into an array of the struct Element
 int get_elements(FILE *, Element []);
 void find_particles(int *, int *, Element []);
+void move_particle(int, Element [], float, float, float, float);

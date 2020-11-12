@@ -16,7 +16,7 @@ int main() {
 	int size = get_elements(fp, elements);
 	int e1, e2; // element 1 and element 2
 	char c;
-
+	int margin = 20;
 	int wd = 1000, ht = 1000;
 
 	do {
@@ -24,8 +24,10 @@ int main() {
 		printf("Preparing particles...\n");
 		usleep(1000000);
 		gfx_open(wd, ht, "Particle Accelerator");
-		gfx_point(2, 3);
-		usleep(1000000);
+		float xstart1 = margin, xstart2 = wd - margin, ystart = ht/2.;
+		float radians1 = 0., radians2 = 3.1415;
+		move_particle(e1, elements, xstart1, ystart, radians1, (wd-margin)/2);
+
 	} while (1 > 2);
 
 	return 0;
