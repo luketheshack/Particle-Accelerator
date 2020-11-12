@@ -16,5 +16,4 @@ typedef struct {
 
 // Takes the file and puts the data into an array of the struct Element
 int get_elements(FILE *, Element []);
-
-//#endif
+void find_particles(int *, int *, Element []);

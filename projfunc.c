@@ -20,3 +20,24 @@ int get_elements(FILE *fp, Element elements[]) {
 	}
 	return i;
 }
+
+void find_particles(int *e1, int *e2, Element elements[]) {
+	// first element
+	printf("Enter the atomic number of an element: ");
+	scanf("%d", e1);
+	while (e1 < 1 || e1 > 118)	{ // must be a known particle
+		printf("That is invalid. Please try again. Enter the atomic number of a known element: ");
+		scanf("%d", e1);
+	}
+	printf("The element you entered was %s, also known as %s!\n", elements[(*e1) - 1].element, elements[(*e1) - 1]);
+
+	// second element	
+	printf("Enter the atomic number of an element: ");
+	scanf("%d", e2);
+	while (e2 < 1 || e2 > 118)	{ // must be a known particle
+		printf("That is invalid. Please try again. Enter the atomic number of a known element: ");
+		scanf("%d", e2);
+	}
+	printf("The element you entered was %s, also known as %s!\n", elements[(*e2) - 1].element, elements[(*e2) - 1]);
+	printf("\n");
+}

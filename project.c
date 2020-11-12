@@ -14,7 +14,7 @@ int main() {
 	Element elements[maxnum];
 	int size = get_elements(fp, elements);
 
-	int element1, element2;
+	int e1, e2; // element 1 and element 2
 	find_particles( &element1, &element2, elements);
 
 	int i;
