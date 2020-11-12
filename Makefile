@@ -1,5 +1,5 @@
 project: project.o projfunc.o
-	gcc project.o projfunc.o -o project
+	gcc project.o projfunc.o gfx.o -lX11 -o project
 
 project.o: projfunc.h project.c
 	gcc -c project.c -o project.o
@@ -8,5 +8,6 @@ projfunc.o: projfunc.h projfunc.c
 	gcc -c projfunc.c -o projfunc.o
 
 clean:
-	rm *.o
+	rm project.o
+	rm projfunc.o
 	rm project

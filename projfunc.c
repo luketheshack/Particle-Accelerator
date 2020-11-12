@@ -3,7 +3,7 @@
 // projfunc.c
 
 #include "projfunc.h"
-
+#include "gfx.h"
 
 int get_elements(FILE *fp, Element elements[]) {
 	int i = 0;
