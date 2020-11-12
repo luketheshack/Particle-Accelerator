@@ -46,7 +46,7 @@ void find_particles(int *e1, int *e2, Element elements[]) {
 
 void move_particle(int element, Element elements[], float xstart, float ystart, float radians, float rotation_radius) {
 	float x_offset = 0, y_offset = 0;
-	int pausetime = 5000;
+	int pausetime = 10000;
 	gfx_color((elements[element-1].atomic * 100) % 256, (elements[element-1].atomic * 100 + 100) % 256, (elements[element-1].atomic * 100 + 200) % 256);
 	int circle_radius = 10 * sqrt(elements[element-1].atomic);
 	while (1) {
@@ -60,7 +60,7 @@ void move_particle(int element, Element elements[], float xstart, float ystart, 
 
 		radians += 0.01;
 		//rotation_radius;
-		pausetime -= 10;
+		//pausetime -= 10;
 		usleep(pausetime);
 	}
 
