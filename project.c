@@ -29,12 +29,11 @@ int main() {
 		move_particle(e1, e2, elements, xstart, ystart, radians1, wd/3);
 		new_particle(e1 + e2, elements, xstart, ystart);
 		printf("\n Type into the console 'q' to quit or 'r' to restart!\n");
-		char c;
-		getchar();
-		scanf("%c", &c);
+		c = getchar();
+		// fix this part down here:
 		while (c != 'q' && c != 'r') {
 			printf("Please try again and enter valid input.\n");
-			scanf("%c", &c);
+			c = getchar();
 		}
 
 	} while (c == 'r');
