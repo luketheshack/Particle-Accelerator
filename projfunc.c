@@ -44,15 +44,20 @@ void find_particles(int *e1, int *e2, Element elements[]) {
 	printf("\n");
 }
 
-void move_particle(int element, Element elements[], float xstart, float ystart, float radians, float rotation_radius) {
+void move_particle(int element1, int element2, Element elements[], float xstart, float ystart, float radians, float rotation_radius) {
 	float x_offset = 0, y_offset = 0;
 	int pausetime = 10000;
-	gfx_color((elements[element-1].atomic * 100) % 256, (elements[element-1].atomic * 100 + 100) % 256, (elements[element-1].atomic * 100 + 200) % 256);
-	int circle_radius = 10 * sqrt(elements[element-1].atomic);
+	int circle_radius1 = 10 * sqrt(elements[element1-1].atomic);
+	int circle_radius2 = 10 * sqrt(elements[element2-1].atomic);
 	while (1) {
 		gfx_clear();
 
-		gfx_circle(xstart + x_offset, ystart + y_offset, circle_radius);
+		gfx_color((elements[element1-1].atomic * 100) % 256, (elements[element1-1].atomic * 100 + 100) % 256, (elements[element1-1].atomic * 100 + 200) % 256);
+		gfx_circle(xstart + x_offset, ystart + y_offset, circle_radius1);
+		
+		gfx_color((elements[element2-1].atomic * 100) % 256, (elements[element2-1].atomic * 100 + 100) % 256, (elements[element2-1].atomic * 100 + 200) % 256);
+		gfx_circle(xstart - x_offset, ystart - y_offset, circle_radius2);
+		
 		gfx_flush();
 
 		x_offset = rotation_radius*cos(radians);
