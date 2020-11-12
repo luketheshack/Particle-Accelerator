@@ -27,7 +27,7 @@ int main() {
 		float xstart = wd/2, ystart = ht/2.;
 		float radians1 = 0., radians2 = 3.1415;
 		move_particle(e1, e2, elements, xstart, ystart, radians1, wd/3);
-
+		new_particle(e1 + e2, elements, xstart, ystart);
 	} while (1 > 2);
 
 	return 0;
