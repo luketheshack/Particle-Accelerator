@@ -15,12 +15,7 @@ int main() {
 	int size = get_elements(fp, elements);
 
 	int e1, e2; // element 1 and element 2
-	find_particles( &element1, &element2, elements);
-
-	int i;
-	for (i = 0; i < size; i++) {
-		printf("%d\n", elements[i].atomic);
-	}
+	find_particles( &e1, &e2, elements);
 	
 	return 0;
 }
