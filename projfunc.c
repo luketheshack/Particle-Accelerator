@@ -101,4 +101,12 @@ void new_particle(int new_element, Element elements[], float xstart, float ystar
 	make_particle(xstart, ystart, radius);
 	gfx_flush();
 	usleep(1000000);
+	// quit, print out info, and go again
+	if (new_element > 118) {
+		printf("You created a new element with %d protons! The largest known element it will eventually decay into is Oganesson, with 118 protons. \n");
+	} else {
+		printf("%s\n", elements[new_element - 1].element);
+		printf("You created %s, also known as %s, which has an atomic number of %d!\n", elements[new_element - 1].element, elements[new_element-1].symbol, new_element);
+	}
+
 }
