@@ -29,11 +29,7 @@ void find_particles(int *e1, int *e2, Element elements[]) {
 		printf("That is invalid. Please try again. Enter the atomic number of a known element: ");
 		scanf("%d", e1);
 	}
-	printf("%s", elements[(*e1) - 1].element);
-	int i;
-	for (i = 0; i < strlen(elements[(*e1)-1].element); i++) {
-		printf("%d\n", (int) (elements[(*e1)-1].element)[i]);
-	}
+	printf("%s\n", elements[(*e1) - 1].element);
 
 	// second element	
 	printf("Enter the atomic number of an element: ");
@@ -42,6 +38,6 @@ void find_particles(int *e1, int *e2, Element elements[]) {
 		printf("That is invalid. Please try again. Enter the atomic number of a known element: ");
 		scanf("%d", e2);
 	}
-	printf("The element you entered was %s, also known as %s!\n", elements[(*e2) - 1].element, elements[(*e2) - 1].symbol);
+	printf("%s\n", elements[*e2 - 1].element);
 	printf("\n");
 }
