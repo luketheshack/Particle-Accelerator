@@ -59,8 +59,9 @@ void move_particle(int element, Element elements[], float xstart, float ystart, 
 		y_offset = rotation_radius*sin(radians);
 
 		radians += 0.01;
-		//rotation_radius;
-		//pausetime -= 10;
+		rotation_radius *= 0.999;
+		pausetime -= 3;
+		// will need to change pausetime parameters, tune this thing
 		usleep(pausetime);
 	}
 
