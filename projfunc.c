@@ -46,17 +46,20 @@ void find_particles(int *e1, int *e2, Element elements[]) {
 
 void move_particle(int element1, int element2, Element elements[], float xstart, float ystart, float radians, float rotation_radius) {
 	float x_offset = 0, y_offset = 0;
-	int pausetime = 10000;
+	int pausetime = 5000;
 	int circle_radius1 = 10 * sqrt(elements[element1-1].atomic);
 	int circle_radius2 = 10 * sqrt(elements[element2-1].atomic);
+
+	int distance;
+
 	while (1) {
 		gfx_clear();
 
 		gfx_color((elements[element1-1].atomic * 100) % 256, (elements[element1-1].atomic * 100 + 100) % 256, (elements[element1-1].atomic * 100 + 200) % 256);
-		gfx_circle(xstart + x_offset, ystart + y_offset, circle_radius1);
+		make_particle(xstart + x_offset, ystart + y_offset, circle_radius1);
 		
 		gfx_color((elements[element2-1].atomic * 100) % 256, (elements[element2-1].atomic * 100 + 100) % 256, (elements[element2-1].atomic * 100 + 200) % 256);
-		gfx_circle(xstart - x_offset, ystart - y_offset, circle_radius2);
+		make_particle(xstart - x_offset, ystart - y_offset, circle_radius2);
 		
 		gfx_flush();
 
@@ -64,10 +67,23 @@ void move_particle(int element1, int element2, Element elements[], float xstart,
 		y_offset = rotation_radius*sin(radians);
 
 		radians += 0.01;
-		rotation_radius *= 0.999;
-		pausetime -= 3;
+		rotation_radius *= 0.998;
+		if (pausetime > 1000) pausetime -= 5;
 		// will need to change pausetime parameters, tune this thing
 		usleep(pausetime);
+
+		// if particles touching (collided), break
+		distance = 2*sqrt(x_offset*x_offset + y_offset*y_offset) - circle_radius1 - circle_radius2;
+		if (distance <= 0) {
+			break;
+		}
 	}
 
+}
+
+void make_particle(float xstart, float ystart, float radius) {
+	float i = 0.;
+	for (i = 0; i <= radius; i += 2) {
+		gfx_circle(xstart, ystart, i);
+	}
 }

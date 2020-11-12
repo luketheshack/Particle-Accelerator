@@ -24,9 +24,9 @@ int main() {
 		printf("Preparing particles...\n");
 		usleep(1000000);
 		gfx_open(wd, ht, "Particle Accelerator");
-		float xstart1 = wd/2, xstart2 = wd/2, ystart = ht/2.;
+		float xstart = wd/2, ystart = ht/2.;
 		float radians1 = 0., radians2 = 3.1415;
-		move_particle(e1, e2, elements, xstart1, ystart, radians1, wd/3);
+		move_particle(e1, e2, elements, xstart, ystart, radians1, wd/3);
 
 	} while (1 > 2);
 
