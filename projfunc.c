@@ -55,10 +55,10 @@ void move_particle(int element1, int element2, Element elements[], float xstart,
 	while (1) {
 		gfx_clear();
 
-		gfx_color((elements[element1-1].atomic * 100) % 256, (elements[element1-1].atomic * 100 + 100) % 256, (elements[element1-1].atomic * 100 + 200) % 256);
+		gfx_color((elements[element1-1].atomic * (rand() % 100)) % 256, (elements[element1-1].atomic * (rand() % 100) + 100) % 256, (elements[element1-1].atomic * (rand() % 100) + 200) % 256);
 		make_particle(xstart + x_offset, ystart + y_offset, circle_radius1);
 		
-		gfx_color((elements[element2-1].atomic * 100) % 256, (elements[element2-1].atomic * 100 + 100) % 256, (elements[element2-1].atomic * 100 + 200) % 256);
+		gfx_color((elements[element2-1].atomic * (rand() % 100)) % 256, (elements[element2-1].atomic * (rand() % 100) + 100) % 256, (elements[element2-1].atomic * (rand() % 100) + 200) % 256);
 		make_particle(xstart - x_offset, ystart - y_offset, circle_radius2);
 		
 		gfx_flush();
@@ -91,11 +91,7 @@ void make_particle(float xstart, float ystart, float radius) {
 void new_particle(int new_element, Element elements[], float xstart, float ystart) {
 	gfx_clear();
 	gfx_flush();
-	if (new_element <= 118) {	
-		gfx_color((elements[new_element-1].atomic * 100) % 256, (elements[new_element-1].atomic * 100 + 100) % 256, (elements[new_element-1].atomic * 100 + 200) % 256);
-	} else {
-		gfx_color(rand() % 256, rand() % 256, rand() % 256);
-	}
+	gfx_color(rand() % 256, rand() % 256, rand() % 256);
 
 	int radius = 4 * sqrt(new_element);
 	make_particle(xstart, ystart, radius);
@@ -103,7 +99,7 @@ void new_particle(int new_element, Element elements[], float xstart, float ystar
 	usleep(1000000);
 	// quit, print out info, and go again
 	if (new_element > 118) {
-		printf("You created a new element with %d protons! The largest known element it will eventually decay into is Oganesson, with 118 protons. \n");
+		printf("You created a new element with %d protons! The largest known element it will eventually decay into is Oganesson, with 118 protons. \n", new_element);
 	} else {
 		printf("%s\n", elements[new_element - 1].element);
 		printf("You created %s, also known as %s, which has an atomic number of %d!\n", elements[new_element - 1].element, elements[new_element-1].symbol, new_element);

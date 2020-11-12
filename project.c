@@ -28,7 +28,16 @@ int main() {
 		float radians1 = 0., radians2 = 3.1415;
 		move_particle(e1, e2, elements, xstart, ystart, radians1, wd/3);
 		new_particle(e1 + e2, elements, xstart, ystart);
-	} while (1 > 2);
+		printf("\n Type into the console 'q' to quit or 'r' to restart!\n");
+		char c;
+		getchar();
+		scanf("%c", &c);
+		while (c != 'q' && c != 'r') {
+			printf("Please try again and enter valid input.\n");
+			scanf("%c", &c);
+		}
 
+	} while (c == 'r');
+	printf("Goodbye! Thank you for simulating atomic collisions!\n");
 	return 0;
 }
