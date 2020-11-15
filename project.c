@@ -35,7 +35,7 @@ int main() {
 	
 		getchar();	
 		c = getc(stdin);
-		
+			
 		while (c != 'q' && c != 'r') {
 			printf("Sorry, you entered bad input. Please try again: \n");
 			getchar();
