@@ -28,7 +28,7 @@ void find_particles(int *e1, int *e2, Element elements[], int maxnum) {
 	printf("Enter the atomic number of an element: ");
 	scanf("%d", e1);
 	while (*e1 < 1 || *e1 > maxnum)	{ // must be a known particle
-		printf("That is invalid. Please try again. Enter the atomic number of a known element: ");
+		printf("Your input was invalid. Enter the atomic number of a known element (between 1 and 118): ");
 		scanf("%d", e1);
 	}
 	printf("%s\n", elements[(*e1) - 1].element);
@@ -37,7 +37,7 @@ void find_particles(int *e1, int *e2, Element elements[], int maxnum) {
 	printf("Enter the atomic number of an element: ");
 	scanf("%d", e2);
 	while (*e2 < 1 || *e2 > maxnum)	{ // must be a known particle
-		printf("That is invalid. Please try again. Enter the atomic number of a known element: ");
+		printf("Your input was invalid. Enter the atomic number of a known element (between 1 and 118): ");
 		scanf("%d", e2);
 	}
 	printf("%s\n", elements[*e2 - 1].element);
