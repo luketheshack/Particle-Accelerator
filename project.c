@@ -30,14 +30,14 @@ int main() {
 		float radians1 = 0., radians2 = 3.1415;
 		move_particle(e1, e2, elements, xstart, ystart, radians1, wd/3);
 		new_particle(e1 + e2, elements, xstart, ystart);
-		printf("\n Type into the console 'q' to quit or 'r' to restart!\n");
+		printf("\nType into the console 'q' to quit or 'r' to restart!\n");
 	
 		getchar();	
 		c = getc(stdin);
 		
 		while (c != 'q' && c != 'r') {
-			printf("%d\n", (int) c);
 			printf("Sorry, you entered bad input. Please try again: \n");
+			getchar();
 			c = getc(stdin);
 		}
 
