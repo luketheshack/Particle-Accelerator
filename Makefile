@@ -1,3 +1,7 @@
+# Luke Marushack
+# Fundamentals of Computing : Lab #11
+# Makefile
+
 project: project.o projfunc.o
 	gcc project.o projfunc.o gfx.o -lX11 -lm -o project
 
