@@ -23,15 +23,15 @@ int main() {
 
 	do {
 		printf("\n");
-		find_particles( &e1, &e2, elements);
+		find_particles( &e1, &e2, elements, maxnum);
 		printf("Preparing particles...\n");
 		usleep(1000000);
 		gfx_open(wd, ht, "Particle Accelerator");
 		float xstart = wd/2., ystart = ht/2.;
 		float radians1 = 0., radians2 = 3.1415;
 		move_particle(e1, e2, elements, xstart, ystart, radians1, wd/3);
-		new_particle(e1 + e2, elements, xstart, ystart);
-		printf("\nType into the console 'q' to quit or 'r' to restart!\n");
+		new_particle(e1 + e2, elements, xstart, ystart, maxnum);
+		printf("\nType into the console 'q' to quit or 'r' to restart! Please only input one character.\n");
 	
 		getchar();	
 		c = getc(stdin);

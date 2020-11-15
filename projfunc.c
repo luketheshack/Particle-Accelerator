@@ -23,11 +23,11 @@ int get_elements(FILE *fp, Element elements[]) {
 }
 
 // gets new particles to be collided from user
-void find_particles(int *e1, int *e2, Element elements[]) {
+void find_particles(int *e1, int *e2, Element elements[], int maxnum) {
 	// first element
 	printf("Enter the atomic number of an element: ");
 	scanf("%d", e1);
-	while (*e1 < 1 || *e1 > 118)	{ // must be a known particle
+	while (*e1 < 1 || *e1 > maxnum)	{ // must be a known particle
 		printf("That is invalid. Please try again. Enter the atomic number of a known element: ");
 		scanf("%d", e1);
 	}
@@ -36,7 +36,7 @@ void find_particles(int *e1, int *e2, Element elements[]) {
 	// second element	
 	printf("Enter the atomic number of an element: ");
 	scanf("%d", e2);
-	while (*e2 < 1 || *e2 > 118)	{ // must be a known particle
+	while (*e2 < 1 || *e2 > maxnum)	{ // must be a known particle
 		printf("That is invalid. Please try again. Enter the atomic number of a known element: ");
 		scanf("%d", e2);
 	}
@@ -90,7 +90,7 @@ void make_particle(float xstart, float ystart, float radius) {
 }
 
 // make big new element
-void new_particle(int new_element, Element elements[], float xstart, float ystart) {
+void new_particle(int new_element, Element elements[], float xstart, float ystart, int maxnum) {
 	gfx_clear();
 	gfx_flush();
 	gfx_color(rand() % 256, rand() % 256, rand() % 256);
@@ -99,8 +99,8 @@ void new_particle(int new_element, Element elements[], float xstart, float ystar
 	make_particle(xstart, ystart, radius);
 	gfx_flush();
 	usleep(1000000);
-	// quit, print out info, and go again
-	if (new_element > 118) {
+	
+	if (new_element > maxnum) {
 		printf("You created a new element with %d protons! The largest known element it will eventually decay into is Oganesson, with 118 protons. \n", new_element);
 	} else {
 		char *ele = malloc(20*sizeof(char));
