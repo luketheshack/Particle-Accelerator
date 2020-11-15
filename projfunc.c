@@ -44,6 +44,7 @@ void find_particles(int *e1, int *e2, Element elements[]) {
 	printf("\n");
 }
 
+// moves the particles around
 void move_particle(int element1, int element2, Element elements[], float xstart, float ystart, float radians, float rotation_radius) {
 	float x_offset = 0, y_offset = 0;
 	int pausetime = 5000;
@@ -69,7 +70,6 @@ void move_particle(int element1, int element2, Element elements[], float xstart,
 		radians += 0.01;
 		rotation_radius *= 0.998;
 		if (pausetime > 1000) pausetime -= 5;
-		// will need to change pausetime parameters, tune this thing
 		usleep(pausetime);
 
 		// if particles touching (collided), break
@@ -81,6 +81,7 @@ void move_particle(int element1, int element2, Element elements[], float xstart,
 
 }
 
+// make a filled-in circle
 void make_particle(float xstart, float ystart, float radius) {
 	float i = 0.;
 	for (i = 0; i <= radius; i += 2) {
@@ -88,6 +89,7 @@ void make_particle(float xstart, float ystart, float radius) {
 	}
 }
 
+// make big new element
 void new_particle(int new_element, Element elements[], float xstart, float ystart) {
 	gfx_clear();
 	gfx_flush();
@@ -101,8 +103,15 @@ void new_particle(int new_element, Element elements[], float xstart, float ystar
 	if (new_element > 118) {
 		printf("You created a new element with %d protons! The largest known element it will eventually decay into is Oganesson, with 118 protons. \n", new_element);
 	} else {
-		printf("%s\n", elements[new_element - 1].element);
-		printf("You created %s, also known as %s, which has an atomic number of %d!\n", elements[new_element - 1].element, elements[new_element-1].symbol, new_element);
+		char *ele = malloc(20*sizeof(char));
+		int i;
+		for (i = 0; i < strlen(elements[new_element - 1].element); i++) {
+			if (isalpha((elements[new_element - 1].element)[i])) {
+				ele[i] = (elements[new_element - 1].element)[i];
+			} else {
+				break;
+			}
+		}
+		printf("You created %s, also known as %s, which has an atomic number of %d!\n", ele, elements[new_element-1].symbol, new_element);
 	}
-
 }

@@ -22,6 +22,7 @@ int main() {
 	int wd = 1000, ht = 1000;
 
 	do {
+		printf("\n");
 		find_particles( &e1, &e2, elements);
 		printf("Preparing particles...\n");
 		usleep(1000000);
