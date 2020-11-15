@@ -32,7 +32,8 @@ int main() {
 		move_particle(e1, e2, elements, xstart, ystart, radians1, wd/3);
 		new_particle(e1 + e2, elements, xstart, ystart, maxnum);
 		printf("\nType into the console 'q' to quit or 'r' to restart! Please only input one character.\n");
-	
+
+		// user play again or quit	
 		getchar();	
 		c = getc(stdin);
 			

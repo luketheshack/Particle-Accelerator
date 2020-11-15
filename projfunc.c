@@ -55,7 +55,7 @@ void move_particle(int element1, int element2, Element elements[], float xstart,
 
 	while (1) {
 		gfx_clear();
-
+		// randomize color and make particles
 		gfx_color((elements[element1-1].atomic * (rand() % 100)) % 256, (elements[element1-1].atomic * (rand() % 100) + 100) % 256, (elements[element1-1].atomic * (rand() % 100) + 200) % 256);
 		make_particle(xstart + x_offset, ystart + y_offset, circle_radius1);
 		
@@ -67,6 +67,7 @@ void move_particle(int element1, int element2, Element elements[], float xstart,
 		x_offset = rotation_radius*cos(radians);
 		y_offset = rotation_radius*sin(radians);
 
+		// adjust speed, make seem more realistic
 		radians += 0.01;
 		rotation_radius *= 0.998;
 		if (pausetime > 1000) pausetime -= 5;
@@ -89,7 +90,7 @@ void make_particle(float xstart, float ystart, float radius) {
 	}
 }
 
-// make big new element
+// make new element of two previous elements combined
 void new_particle(int new_element, Element elements[], float xstart, float ystart, int maxnum) {
 	gfx_clear();
 	gfx_flush();
